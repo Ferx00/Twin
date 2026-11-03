@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi Nuvcita Hermosa ♡</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  background:#07070b;
+  color:#f7eef1;
+  font-family:Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+
+/* ESTRELLAS */
+
+#stars{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#fff;
+  border-radius:50%;
+  opacity:.35;
+  animation:twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle{
+  0%,100%{
+    opacity:.15;
+    transform:scale(.7);
+  }
+  50%{
+    opacity:.9;
+    transform:scale(1.5);
+  }
+}
+
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:28px;
+  position:relative;
+  z-index:2;
+  transition:1.1s ease;
+}
+
+.hero.hide{
+  opacity:0;
+  transform:scale(1.06);
+  pointer-events:none;
+}
+
+.hero-inner{
+  max-width:700px;
+}
+
+.eyebrow{
+  font:11px Arial,sans-serif;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#aaa;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(52px,13vw,105px);
+  font-weight:400;
+  font-style:italic;
+  line-height:.95;
+}
+
+.hero h1 span{
+  color:#e5a3b8;
+}
+
+.hero-sub{
+  margin:28px auto 35px;
+  max-width:520px;
+  color:#aaa;
+  line-height:1.9;
+  font-size:16px;
+}
+
+.open{
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.05);
+  color:#fff;
+  padding:15px 34px;
+  border-radius:50px;
+  cursor:pointer;
+  font:11px Arial,sans-serif;
+  letter-spacing:3px;
+  transition:.35s;
+  backdrop-filter:blur(10px);
+}
+
+.open:hover{
+  transform:translateY(-3px);
+  border-color:#e5a3b8;
+  background:rgba(229,163,184,.1);
+}
+
+.heart{
+  display:inline-block;
+  color:#e5a3b8;
+  animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  15%{transform:scale(1.2)}
+  30%{transform:scale(1)}
+}
+
+.hint{
+  font:10px Arial,sans-serif;
+  color:#777;
+  letter-spacing:2px;
+  margin-top:18px;
+}
+
+/* CARTA */
+
+#letterWrap{
+  position:relative;
+  z-index:1;
+  padding:70px 18px 100px;
+}
+
+.letter{
+  max-width:760px;
+  margin:auto;
+  background:#f8f2ec;
+  color:#2c2529;
+  padding:clamp(32px,7vw,72px);
+  position:relative;
+  box-shadow:0 35px 100px rgba(0,0,0,.55);
+  opacity:0;
+  transform:translateY(70px);
+  transition:1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+.letter.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.letter:before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(70,45,55,.16);
+  pointer-events:none;
+}
+
+
+
+.date{
+  font:10px Arial,sans-serif;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#9b8f94;
+  margin-bottom:45px;
+}
+
+.letter h2{
+  font-size:clamp(42px,8vw,66px);
+  font-weight:400;
+  font-style:italic;
+  margin-bottom:35px;
+  letter-spacing:-1.5px;
+  color:#30262c;
+}
+
+.letter h2:after{
+  content:"♡";
+  display:block;
+  font-size:17px;
+  color:#b77b8e;
+  margin-top:20px;
+  letter-spacing:8px;
+}
+
+
+
+.letter p{
+  font-size:17px;
+  line-height:2.15;
+  margin-bottom:28px;
+  text-align:justify;
+  letter-spacing:.15px;
+}
+
+
+
+.dropcap:first-letter{
+  font-size:65px;
+  float:left;
+  line-height:.8;
+  padding-right:12px;
+  padding-top:8px;
+  color:#a85f78;
+  font-style:italic;
+}
+
+
+
+.romantic{
+  color:#a85f78;
+  font-style:italic;
+}
+
+
+
+.letter-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  margin:40px 0;
+  color:#b77b8e;
+  font-size:15px;
+}
+
+.letter-divider:before,
+.letter-divider:after{
+  content:"";
+  width:65px;
+  height:1px;
+  background:rgba(168,95,120,.3);
+}
+
+
+
+.signature{
+  text-align:right;
+  margin-top:65px;
+  font-size:25px;
+  font-style:italic;
+  color:#805568;
+  line-height:1.8;
+}
+
+.signature small{
+  display:block;
+  margin-top:12px;
+  font:10px Arial,sans-serif;
+  letter-spacing:3px;
+  color:#9b8f94;
+  text-transform:uppercase;
+}
+
+
+
+.final{
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 25px;
+  position:relative;
+  z-index:1;
+}
+
+.final-inner{
+  max-width:650px;
+  opacity:0;
+  transform:translateY(35px);
+  transition:1s ease;
+}
+
+.final-inner.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.final p{
+  font-size:18px;
+  line-height:2;
+  color:#aaa;
+  font-style:italic;
+}
+
+.final .big{
+  font-size:clamp(25px,6vw,42px);
+  color:#eee;
+  margin-bottom:25px;
+}
+
+.final-heart{
+  font-size:42px;
+  color:#e5a3b8;
+  margin-top:35px;
+  animation:pulse 1.8s infinite;
+}
+
+
+
+@media(max-width:600px){
+
+  #letterWrap{
+    padding:35px 12px 65px;
+  }
+
+  .letter{
+    padding:38px 27px;
+  }
+
+  .letter:before{
+    inset:8px;
+  }
+
+  .date{
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:35px;
+  }
+
+  .letter h2{
+    font-size:43px;
+  }
+
+  .letter p{
+    font-size:16px;
+    line-height:2;
+    margin-bottom:24px;
+  }
+
+  .dropcap:first-letter{
+    font-size:57px;
+  }
+
+  .signature{
+    font-size:23px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+
+    <div class="eyebrow">
+      Hay algo que quería decirte ♡
+    </div>
+
+    <h1>
+       <span>Para mi Twin ♡</span>
+      <i class="heart">♡</i>
+    </h1>
+
+    <button class="open" onclick="openLetter()">
+      ABRIR CARTA
+    </button>
+
+    <div class="hint">
+      Si lees esto me debes varios besitos 🕸️
+    </div>
+
+  </div>
+</section>
+
+
+
+<main id="letterWrap">
+
+<article class="letter" id="letter">
+
+  <div class="date">
+    Me diste permiso así que voy contigo ♡
+  </div>
+
+  <h2>Mi Nuvcita ♡</h2>
+
+  <p class="dropcap">
+    Esta carta es solo un reflejo de lo que estoy comenzando
+    a sentir por ti. Quizá sea muy pronto, pero ya que me
+    diste permiso, aquí estoy, empezando a expresarlo.
+  </p>
+
+  <p>
+    Bueno, la verdad es que me encanta todo de ti,
+    <span class="romantic">Pradita Hermosa</span>.
+    Me encanta pasar tiempo contigo, ver cosas juntos,
+    compartir momentos y, sinceramente, hacer cualquier
+    cosa mientras sea contigo. Quiero que sepas que no
+    espero una respuesta rápida. Me gusta
+    cómo estamos ahora, disfrutando de conocernos, dejando
+    que todo fluya y dándole tiempo al tiempo.
+  </p>
+
+  <p>
+    Me encanta compartir tiempo contigo. Es algo curioso
+    que, aunque todavía no haya escuchado tu voz, de alguna
+    manera siento que debe ser tan hermosa como tú.
+    Mientras te voy conociendo, quisiera descubrir todos
+    tus miedos, tus metas, tus sueños, aquello que te hace
+    sentir tú misma y, sobre todo, que me permitas formar
+    parte de ese mundo poco a poco.
+  </p>
+
+  <div class="letter-divider">♡</div>
+
+  <p>
+    También soy muy consciente de todo lo que hablaste
+    aquel día con Lior, de que ahora no quieres dolores
+    de cabeza y de que es complicado que alguien llegue
+    a llamar tu atención. Y quiero que sepas que no
+    pretendo ser una preocupación más en tu vida, sino
+    alguien que te brinde tranquilidad, cariño y motivos
+    para sonreír.
+  </p>
+
+  <p>
+    No quiero prometerte un mundo entero con palabras,
+    prefiero demostrártelo con pequeños detalles, con
+    tiempo y con sinceridad. Porque lo que estoy comenzando
+    a sentir por ti es muy bonito y no quiero apresurarlo.
+  </p>
+
+  <p>
+    Espero de corazón que algún día se nos dé la oportunidad
+    de escribir algo bonito juntos. Y si no llega a suceder,
+    al menos habré tenido la dicha de conocerte y compartir
+    contigo hasta donde tú me lo permitas.
+  </p>
+
+       <div class="letter-divider">♡</div>
+
+  <p>
+     cuando uno va a un campo de flores, no es necesario irse al momento,
+     el momento es de disfrutarlo, de saber que todo es poco a poco,
+     te adoro mucho mi niña ♡.
+  </p>
+  <div class="letter-divider">♡</div>
+
+  <p>
+    Te quiero mucho, te aprecio y te amo Naomy,
+    <span class="romantic">mi Nuvcita ♡.</span> 
+  </p>
+
+  <div class="signature">
+    Con cariño,<br>
+    Fer 🕸️
+    <small>para mi Twin hermosa ♡</small>
+  </div>
+
+</article>
+
+</main>
+
+
+
+<section class="final" id="final">
+
+  <div class="final-inner">
+
+    <p class="big">
+      Te adoro mucho mi Twincita Nuv ♡
+    </p>
+
+    <p>
+      Mi primera Confesión ♡
+    </p>
+
+    <div class="final-heart">♡</div>
+
+  </div>
+
+</section>
+
+<script>
+
+
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<110;i++){
+
+  const s=document.createElement("span");
+
+  s.className="star";
+
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+
+  s.style.animationDelay=Math.random()*5+"s";
+
+  s.style.animationDuration=
+    (2+Math.random()*5)+"s";
+
+  stars.appendChild(s);
+
+}
+
+
+
+function openLetter(){
+
+  document.getElementById("hero")
+    .classList.add("hide");
+
+  setTimeout(()=>{
+
+    document.getElementById("letter")
+      .classList.add("show");
+
+    document.getElementById("letterWrap")
+      .scrollIntoView({behavior:"smooth"});
+
+  },650);
+
+}
+
+
+const observer=new IntersectionObserver(entries=>{
+
+  entries.forEach(e=>{
+
+    if(e.isIntersecting){
+      e.target.classList.add("show");
+    }
+
+  });
+
+},{threshold:.18});
+
+observer.observe(document.getElementById("final"));
+
+</script>
+
+</body>
+</html>
